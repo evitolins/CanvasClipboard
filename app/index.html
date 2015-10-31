@@ -106,9 +106,31 @@ clipboard.paste(destCanvas);</code></pre>
             </div></td>
         </tr>
     </table>
-    
+
+
+    <h2>Cut -> Paste w/ Manipulation Controls</h2>
+    <table>
+        <tr>
+            <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceF"></canvas></td>
+            <td><h3>dest</h3><canvas class="checkered" width="300" height="300" id="destF"></canvas></td>
+            <td><h3>controls</h3>
+                <h4>cut</h4>
+                <input id="slider_cutX" type="range" min=0 max=300 value=0 /> x<br>
+                <input id="slider_cutY" type="range" min=0 max=300 value=0 /> y<br>
+                <input id="slider_cutW" type="range" min=0 max=300 value=0 /> w<br>
+                <input id="slider_cutH" type="range" min=0 max=300 value=0 /> h<br>
+                <h4>paste</h4>
+                <input id="slider_translateX" type="range" min=0 max=100 value=0 /> translateX<br>
+                <input id="slider_translateY" type="range" min=0 max=100 value=0    /> translateY<br>
+                <input id="slider_rotate" type="range" min=-360 max=360 value=0 /> rotate<br>
+                <input id="slider_scale" type="range" min=0 max=4 value=1 step=0.1 /> scale<br>
+            </td>
+        </tr>
+    </table>
+
     <!-- build:js scripts/main.js -->
     <script type="text/javascript" src="scripts/CanvasClipboard.js"></script>
+    <script type="text/javascript" src="scripts/CanvasUtils.js"></script>
     <script type="text/javascript" src="scripts/example.js"></script>
     <!-- endbuild -->
 </body>

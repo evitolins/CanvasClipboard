@@ -46,7 +46,10 @@ var init = function () {
     clipboard.translate(0, 50);
     clipboard.paste(canvases.e.dest);
 
-
+    var slider_cutX = document.getElementById('slider_cutX');
+    var slider_cutY = document.getElementById('slider_cutY');
+    var slider_cutW = document.getElementById('slider_cutW');
+    var slider_cutH = document.getElementById('slider_cutH');
     var slider_translateX = document.getElementById('slider_translateX');
     var slider_translateY = document.getElementById('slider_translateY');
     var slider_rotate = document.getElementById('slider_rotate');
@@ -54,6 +57,38 @@ var init = function () {
     ctxs.f.source.drawImage(testImg, 0, 0);
     clipboard.cut(canvases.f.source, 20, 50, 100, 100);
     clipboard.paste(canvases.f.dest);
+
+    var cut = {x:20, y:50, w:100, h:100};
+
+    slider_cutX.addEventListener('input', function (e) {
+        ctxs.f.source.drawImage(testImg, 0, 0);
+        cut.x = parseFloat(this.value);
+        clipboard.cut(canvases.f.source, cut.x, cut.y, cut.w, cut.h);
+        utils.clear(canvases.f.dest);
+        clipboard.paste(canvases.f.dest);
+    });
+    slider_cutY.addEventListener('input', function (e) {
+        ctxs.f.source.drawImage(testImg, 0, 0);
+        cut.y = parseFloat(this.value);
+        clipboard.cut(canvases.f.source, cut.x, cut.y, cut.w, cut.h);
+        utils.clear(canvases.f.dest);
+        clipboard.paste(canvases.f.dest);
+    });
+    slider_cutW.addEventListener('input', function (e) {
+        ctxs.f.source.drawImage(testImg, 0, 0);
+        cut.w = parseFloat(this.value);
+        clipboard.cut(canvases.f.source, cut.x, cut.y, cut.w, cut.h);
+        utils.clear(canvases.f.dest);
+        clipboard.paste(canvases.f.dest);
+    });
+    slider_cutH.addEventListener('input', function (e) {
+        ctxs.f.source.drawImage(testImg, 0, 0);
+        cut.h = parseFloat(this.value);
+        clipboard.cut(canvases.f.source, cut.x, cut.y, cut.w, cut.h);
+        utils.clear(canvases.f.dest);
+        clipboard.paste(canvases.f.dest);
+    });
+
 
     slider_translateX.addEventListener('input', function (e) {
         utils.clear(canvases.f.dest);
