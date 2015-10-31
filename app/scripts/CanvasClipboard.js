@@ -145,6 +145,11 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
 
     };
 
+    CanvasClipboard.prototype.getColorSample = function (x, y) {
+        var s = this.ctx.getImageData( x, y, 1, 1 );
+        return [ s.data[0], s.data[1], s.data[2] ];
+    };
+
 // http://stackoverflow.com/questions/9852159/calculate-bounding-box-of-arbitrary-pixel-based-drawing
 // function boundingBox()
 //   w = getWidth()            # Assuming graphics address goes from [0,w)
