@@ -9,9 +9,9 @@ body {
 }
 
 canvas {
-    outline: 1px solid #EEE;
     background: #EEE;
-    margin: 20px
+    margin: 20px;
+    border-radius: 10px;
 }
 
 h1 {
@@ -37,7 +37,6 @@ pre {
 }
 
 .code-container {
-  outline: 1px solid #EEE;
   margin: 20px;
   width: 400px;
   height: 300px;
