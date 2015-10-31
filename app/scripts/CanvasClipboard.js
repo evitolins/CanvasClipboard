@@ -9,6 +9,14 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         return Math.PI / 180 * deg;
     };
 
+    var point = function (ctx, x, y, color, r) {
+        r = r || 3;
+        color = color || 'red';
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+        ctx.fillStyle = color;
+        ctx.fill();
+    };
 
 
     var CanvasClipboard = function () {
@@ -90,6 +98,9 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         ctx2.drawImage(cvs1, 0, 0, w, h, x, y, w, h );
         ctx2.restore();
         console.log('paste:', 0, 0, w, h, x, y, w, h );
+
+        point(ctx2, pX, pY);
+
     };
 
 
