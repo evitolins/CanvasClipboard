@@ -13,7 +13,20 @@ canvas {
     background: #EEE;
 }
 
+h1 {
+  color : #fff;
+  font-weight: 100;
+  letter-spacing: 0.04em;
+  padding: 0 0 6px;
+  margin-top: 50px;
+  border-bottom: 1px solid #fff;
 }
+
+h2 {
+  margin-top: 50px;
+  color : #fff;
+}
+
 /* @http://www.sunpig.com/martin/archives/2010/02/10/marching-ants-in-css.html */
 .marchingAnts {
     background: url('data:image/gif;base64,R0lGODlhCAAIAIABAAATfwAAACH5BAEAAAEALAAAAAAIAAgAAAINhBEZh8q6DoTPSWvoKQA7') repeat-x 0 -6px;
@@ -24,3 +37,21 @@ canvas {
     -webkit-animation-timing-function: linear;
 }
 
+.checkered {
+    background-image:
+      -moz-linear-gradient(45deg, #FFF 25%, transparent 25%), 
+      -moz-linear-gradient(-45deg, #FFF 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #FFF 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #FFF 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #FFF), color-stop(.25, transparent)), 
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #FFF), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #FFF)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #FFF));
+
+    -moz-background-size:20px 20px;
+    background-size:20px 20px;
+    -webkit-background-size:20px 21px; /* override value for shitty webkit */
+    
+    background-position:0 0, 10px 0, 10px -10px, 0px 10px;
+}
