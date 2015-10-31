@@ -1,47 +1,50 @@
 var clipboard = new CanvasClipboard();
 var testImg = new Image();
-var a = document.getElementById('source');
-var b = document.getElementById('test1');
-var c = document.getElementById('test2');
-var d = document.getElementById('test3');
-var e = document.getElementById('test4');
-var f = document.getElementById('test5');
-var aCtx = a.getContext('2d');
-var bCtx = b.getContext('2d');
-var cCtx = c.getContext('2d');
-var dCtx = d.getContext('2d');
-var eCtx = e.getContext('2d');
-var fCtx = e.getContext('2d');
+var canvases = {
+    a : {source: document.getElementById("sourceA"), dest: document.getElementById("destA")},
+    b : {source: document.getElementById("sourceB"), dest: document.getElementById("destB")},
+    c : {source: document.getElementById("sourceC"), dest: document.getElementById("destC")},
+    d : {source: document.getElementById("sourceD"), dest: document.getElementById("destD")},
+    e : {source: document.getElementById("sourceE"), dest: document.getElementById("destE")}
+};
+var ctxs = {
+    a : {source: canvases.a.source.getContext('2d'), dest: canvases.a.dest.getContext('2d')},
+    b : {source: canvases.b.source.getContext('2d'), dest: canvases.b.dest.getContext('2d')},
+    c : {source: canvases.c.source.getContext('2d'), dest: canvases.c.dest.getContext('2d')},
+    d : {source: canvases.d.source.getContext('2d'), dest: canvases.d.dest.getContext('2d')},
+    e : {source: canvases.e.source.getContext('2d'), dest: canvases.e.dest.getContext('2d')}
+};
 
 testImg.onload = (function(){
     return function() {
-        console.log('onload');
-        aCtx.drawImage(testImg, 0, 0);
+        ctxs.a.source.drawImage(testImg, 0, 0);
+        clipboard.cut(canvases.a.source, 10, 30, 100, 100);
+        clipboard.paste(canvases.a.dest);
 
-        // Tests (must be performed after image load)
-        //clipboard.copy(a, 10, 10, 290, 290);
-        //clipboard.paste(b);
+        ctxs.b.source.drawImage(testImg, 0, 0);
+        clipboard.cut(canvases.b.source, 10, 30, 100, 100);
+        clipboard.translate(130, 100);
+        clipboard.paste(canvases.b.dest);
 
-        clipboard.cut(a, 10, 30, 100, 100);
-        clipboard.paste(b);
-
-        clipboard.paste(c, 130, 100);
-
+        ctxs.c.source.drawImage(testImg, 0, 0);
+        clipboard.cut(canvases.c.source, 10, 30, 100, 100);
         clipboard.rotate(27);
-        clipboard.paste(d);
+        clipboard.paste(canvases.c.dest);
 
+
+        ctxs.d.source.drawImage(testImg, 0, 0);
+        clipboard.cut(canvases.d.source, 10, 30, 100, 100);
         clipboard.rotate(-15);
         clipboard.scale(2);
-        clipboard.paste(e);
+        clipboard.paste(canvases.d.dest);
 
+        ctxs.e.source.drawImage(testImg, 0, 0);
+        clipboard.cut(canvases.e.source, 10, 30, 100, 100);
         clipboard.rotate(-15);
         clipboard.scale(2);
         clipboard.translate(20, 50);
-        clipboard.paste(f);
+        clipboard.paste(canvases.e.dest);
+
     }
 }());
 testImg.src = "images/testImage.jpg";
-
-
-// Show clipboard canvas
-document.body.appendChild(clipboard.clipboard);

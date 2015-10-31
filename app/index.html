@@ -29,31 +29,82 @@
     <h1>CanvasClipboard Examples</h1>
     <p>This is to test the CanvasClipboard.js Class Methods</p>
 
-    <h2>source</h2>
-    <canvas class="checkered" width="300" height="300" id="source"></canvas>
+    <h2>Cut -> Paste In Place</h2>
+    <table>
+        <tr>
+            <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceA"></canvas></td>
+            <td><h3>dest</h3><canvas class="checkered" width="300" height="300" id="destA"></canvas></td>
+            <td><h3>code</h3><div class="code-container">
+                <pre><code>var clipboard = new CanvasClipboard();
+sourceCtx.drawImage(img, 0, 0);
+clipboard.cut(sourceCanvas, 10, 30, 100, 100);
+clipboard.paste(destCanvas);</code></pre>
+            </div></td>
+        </tr>
+    </table>
 
-    <h2>dest</h2>
-    <h3>Paste in Place</h3>
-    <canvas class="checkered" width="300" height="300" id="test1"></canvas>
+    <h2>Cut->Paste w/ Offset</h2>
+    <table>
+        <tr>
+            <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceB"></canvas></td>
+            <td><h3>dest</h3><canvas class="checkered" width="300" height="300" id="destB"></canvas></td>
+            <td><h3>code</h3><div class="code-container">
+                <pre><code>var clipboard = new CanvasClipboard();
+sourceCtx.drawImage(img, 0, 0);
+clipboard.cut(sourceCanvas, 10, 30, 100, 100);
+clipboard.translate(130, 100);
+clipboard.paste(destCanvas);</code></pre>
+            </div></td>
+        </tr>
+    </table>
 
-    <h3>Paste w/ Offset</h3>
-    <canvas class="checkered" width="300" height="300" id="test2"></canvas>
+    <h2>Paste w/ 27deg Rotation</h2>
+    <table>
+        <tr>
+            <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceC"></canvas></td>
+            <td><h3>dest</h3><canvas class="checkered" width="300" height="300" id="destC"></canvas></td>
+            <td><h3>code</h3><div class="code-container">
+                <pre><code>var clipboard = new CanvasClipboard();
+sourceCtx.drawImage(img, 0, 0);
+clipboard.cut(sourceCanvas, 10, 30, 100, 100);
+clipboard.rotate(27);
+clipboard.paste(destCanvas);</code></pre>
+            </div></td>
+        </tr>
+    </table>
 
-    <h3>Paste w/ 27deg Rotation</h3>
-    <canvas class="checkered" width="300" height="300" id="test3"></canvas>
+    <h2>Paste w/ 200% Scale</h2>
+    <table>
+        <tr>
+            <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceD"></canvas></td>
+            <td><h3>dest</h3><canvas class="checkered" width="300" height="300" id="destD"></canvas></td>
+            <td><h3>code</h3><div class="code-container">
+                <pre><code>var clipboard = new CanvasClipboard();
+sourceCtx.drawImage(img, 0, 0);
+clipboard.cut(sourceCanvas, 10, 30, 100, 100);
+clipboard.rotate(-15);
+clipboard.scale(2);
+clipboard.paste(destCanvas);</code></pre>
+            </div></td>
+        </tr>
+    </table>
 
-    <h3>Paste w/ 200% Scale</h3>
-    <canvas class="checkered" width="300" height="300" id="test4"></canvas>
-
-    <h3>Paste w/ 200% Scale, Translated (20, 50)</h3>
-    <canvas class="checkered" width="300" height="300" id="test5"></canvas>
-
-    <h2>source image</h2>
-    <img src="images/testImage.jpg"></img>
-
-    <h2>clipboard</h2>
-
-    
+    <h2>Paste w/ 200% Scale, Translated (20, 50)</h2>
+    <table>
+        <tr>
+            <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceE"></canvas></td>
+            <td><h3>dest</h3><canvas class="checkered" width="300" height="300" id="destE"></canvas></td>
+            <td><h3>code</h3><div class="code-container">
+                <pre><code>var clipboard = new CanvasClipboard();
+sourceCtx.drawImage(img, 0, 0);
+clipboard.cut(sourceCanvas, 10, 30, 100, 100);
+clipboard.rotate(-15);
+clipboard.scale(2);
+clipboard.translate(20, 50);
+clipboard.paste(destCanvas);</code></pre>
+            </div></td>
+        </tr>
+    </table>
     
     <!-- build:js scripts/main.js -->
     <script type="text/javascript" src="scripts/CanvasClipboard.js"></script>

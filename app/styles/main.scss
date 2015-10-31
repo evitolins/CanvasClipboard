@@ -11,6 +11,7 @@ body {
 canvas {
     outline: 1px solid #EEE;
     background: #EEE;
+    margin: 20px
 }
 
 h1 {
@@ -26,6 +27,27 @@ h2 {
   margin-top: 50px;
   color : #fff;
 }
+
+td {
+  vertical-align: top;
+}
+
+pre {
+  padding: 20px;
+}
+
+.code-container {
+  outline: 1px solid #EEE;
+  margin: 20px;
+  width: 400px;
+  height: 300px;
+  background: #222;
+  color: #eee;
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: auto;
+}
+
 
 /* @http://www.sunpig.com/martin/archives/2010/02/10/marching-ants-in-css.html */
 .marchingAnts {
