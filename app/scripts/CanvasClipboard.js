@@ -108,40 +108,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
     };
 
 
-// http://stackoverflow.com/questions/9852159/calculate-bounding-box-of-arbitrary-pixel-based-drawing
-// function boundingBox()
-//   w = getWidth()            # Assuming graphics address goes from [0,w)
-//   h = getHeight()           # Assuming graphics address goes from [0,h)
-//   for y=h-1 to 0 by -1      # Iterate from last row upwards
-//     for x=w-1 to 0 by -1    # Iterate across the entire row
-//       if pxAt(x,y) then
-//         maxY=y
-//         break               # Break out of both loops
-
-//   if maxY===undefined then  # No pixels, no bounding box
-//     return               
-
-//   for x=w-1 to 0 by -1      # Iterate from last column to first
-//     for y=0 to maxY         # Iterate down the column, up to maxY
-//       if pxAt(x,y) then
-//         maxX=x
-//         break               # Break out of both loops
-
-//   for x=0 to maxX           # Iterate from first column to maxX
-//     for y=0 to maxY         # Iterate down the column, up to maxY
-//       if pxAt(x,y) then
-//         minX=x
-//         break               # Break out of both loops
-
-//   for y=0 to maxY           # Iterate down the rows, up to maxY
-//     for x=0 to maxX         # Iterate across the row, up to maxX
-//       if pxAt(x,y) then
-//         minY=y
-//         break               # Break out of both loops
-
-//   return minX, minY, maxX, maxY
-
-
     window.CanvasClipboard = CanvasClipboard;
 
 }());
