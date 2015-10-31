@@ -1,0 +1,11 @@
+{
+  "name": "canvasclipboard",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1"
+  },
+  "devDependencies": {
+    "chai": "~3.4.0",
+    "mocha": "~2.3.3"
+  }
+}

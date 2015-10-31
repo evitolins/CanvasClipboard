@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+    canvas {
+        border: 1px solid #eee;
+        background: #FFEBAA;
+    }
+
+    /* @http://www.sunpig.com/martin/archives/2010/02/10/marching-ants-in-css.html */
+    .marchingAnts {
+        background: url('data:image/gif;base64,R0lGODlhCAAIAIABAAATfwAAACH5BAEAAAEALAAAAAAIAAgAAAINhBEZh8q6DoTPSWvoKQA7') repeat-x 0 -6px;
+        padding: 2px 0 0 0;
+
+        -webkit-animation-duration: 0.3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>CanvasClipboard Examples</h1>
+    <p>
+    This is to test the RGBcanvas.js Class Methods
+    </p>
+
+    <h2>source</h2>
+    <canvas width="300" height="300" id="source"></canvas>
+
+    <h2>dest</h2>
+    <h3>Paste in Place</h3>
+    <canvas width="300" height="300" id="test1"></canvas>
+
+    <h3>Paste w/ Offset</h3>
+    <canvas width="300" height="300" id="test2"></canvas>
+
+    <h3>Paste w/ 27deg Rotation</h3>
+    <canvas width="300" height="300" id="test3"></canvas>
+
+    <h3>Paste w/ 200% Scale</h3>
+    <canvas width="300" height="300" id="test4"></canvas>
+
+    <h2>source image</h2>
+    <img src="images/testImage.jpg"></img>
+
+    <h2>clipboard</h2>
+
+    
+    
+    <!-- build:js scripts/main.js -->
+    <script type="text/javascript" src="scripts/CanvasClipboard.js"></script>
+    <script type="text/javascript" src="scripts/example.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
