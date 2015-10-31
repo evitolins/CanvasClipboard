@@ -42,6 +42,11 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         // Alter clipboard to match source size and origin
         this.origXpos = x || 0;
         this.origYpos = y || 0;
+        this.manip = {
+            scale : 1,
+            rotate : 0,
+            translate : [0, 0]
+        };
         this.clipboard.width = w;
         this.clipboard.height = h;
 
