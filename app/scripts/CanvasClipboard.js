@@ -105,8 +105,7 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
     CanvasClipboard.prototype.isCanvas = function (source) {
         return (typeof source === "object" && source.tagName === "CANVAS");
     };
-    // Add given image element's content to destination canvas after image src
-    // has been loaded.
+
     CanvasClipboard.prototype.addSrc = function (dest, src, callback) {
         var ctx = dest.getContext('2d'),
             image = new Image();
