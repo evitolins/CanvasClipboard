@@ -23,6 +23,15 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         image.src = src;
     };
 
+    CanvasUtils.prototype.clear = function (canvas, x, y, w, h) {
+        var ctx = canvas.getContext('2d');
+        x = (typeof x === 'number') ? x : 0;
+        y = (typeof y === 'number') ? y : 0;
+        w = w || canvas.width - x;
+        h = h || canvas.height - y;
+        ctx.clearRect(x, y, w, h);
+    };
+
     CanvasUtils.prototype.copyFromTo = function (source, dest) {
         var cvs1 = source,
             ctx1 = cvs1.getContext("2d"),
