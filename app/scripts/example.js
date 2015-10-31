@@ -1,4 +1,4 @@
-var util = new CanvasClipboard();
+var clipboard = new CanvasClipboard();
 var testImg = new Image();
 var a = document.getElementById('source');
 var b = document.getElementById('test1');
@@ -17,24 +17,24 @@ testImg.onload = (function(){
         aCtx.drawImage(testImg, 0, 0);
 
         // Tests (must be performed after image load)
-        //util.copy(a, 10, 10, 290, 290);
-        //util.paste(b);
+        //clipboard.copy(a, 10, 10, 290, 290);
+        //clipboard.paste(b);
 
-        util.cut(a, 10, 30, 100, 100);
-        util.paste(b);
+        clipboard.cut(a, 10, 30, 100, 100);
+        clipboard.paste(b);
 
-        util.paste(c, 130, 100);
+        clipboard.paste(c, 130, 100);
 
-        util.rotate(27);
-        util.paste(d);
+        clipboard.rotate(27);
+        clipboard.paste(d);
 
-        util.rotate(-15);
-        util.scale(2);
-        util.paste(e);
+        clipboard.rotate(-15);
+        clipboard.scale(2);
+        clipboard.paste(e);
     }
 }());
 testImg.src = "images/testImage.jpg";
 
 
 // Show clipboard canvas
-document.body.appendChild(util.clipboard);
+document.body.appendChild(clipboard.clipboard);
