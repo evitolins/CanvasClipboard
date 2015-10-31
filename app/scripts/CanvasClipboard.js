@@ -58,8 +58,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         this.clipboard.width = w;
         this.clipboard.height = h;
         this.clipboard_ctx.drawImage(cvs1, x, y, w, h, 0, 0, w, h );
-
-        console.log('copy', x, y, w, h, 0, 0, w, h );
     };
 
     CanvasClipboard.prototype.cut = function (source, x, y, w, h) {
@@ -71,8 +69,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
 
         // Remove original content
         ctx1.clearRect(x, y, w, h);
-
-        console.log('cut', x, y, w, h);
     };
 
     CanvasClipboard.prototype.paste = function (dest) {
@@ -85,8 +81,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
             pX = (w/2) + this.origXpos + this.manip.translate[0],
             pY = (h/2) + this.origYpos + this.manip.translate[1];
 
-
-        console.log('pastePivot: ', pX, pY, w, h);
         ctx2.save();
         ctx2.translate(pX, pY);
         ctx2.scale(this.manip.scale, this.manip.scale);
@@ -94,10 +88,8 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         ctx2.translate(-pX + this.manip.translate[0], -pY + this.manip.translate[1]);
         ctx2.drawImage(cvs1, 0, 0, w, h, this.origXpos, this.origYpos, w, h );
         ctx2.restore();
-        console.log('paste:', 0, 0, w, h, x, y, w, h );
 
         point(ctx2, pX, pY);
-
     };
 
 
