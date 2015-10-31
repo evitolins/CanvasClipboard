@@ -15,9 +15,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         this.clipboard.rotate = 0;
         this.clipboard.width = 0;
         this.clipboard.height = 0;
-
-        //Only for testing
-        document.body.appendChild(this.clipboard);
     };
 
     // Clipboard

@@ -34,3 +34,7 @@ testImg.onload = (function(){
     }
 }());
 testImg.src = "images/testImage.jpg";
+
+
+// Show clipboard canvas
+document.body.appendChild(util.clipboard);
