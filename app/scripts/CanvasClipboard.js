@@ -70,19 +70,18 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
     CanvasClipboard.prototype.paste = function (dest, x, y) {
         var cvs1 = this.clipboard,
             ctx1 = this.clipboard_ctx,
+            w = this.clipboard.width,
+            h = this.clipboard.height,
             cvs2 = dest,
             ctx2 = cvs2.getContext("2d"),
-            w = cvs1.width,
-            h = cvs1.height;
+            pX, pY;
 
-            x = (x !== undefined) ? x : this.origXpos;
-            y = (y !== undefined) ? y : this.origYpos;
-
-        var pX = x+(w/2);
-        var pY = y+(h/2);
+        x = (x !== undefined) ? x : this.origXpos;
+        y = (y !== undefined) ? y : this.origYpos;
+        pX = x+(w/2);
+        pY = y+(h/2);
 
         console.log('pastePivot: ', pX, pY, w, h);
-
         ctx2.save();
         ctx2.translate(pX, pY);
         ctx2.scale(this.manip.scale, this.manip.scale);
@@ -90,7 +89,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         ctx2.translate(-pX + this.manip.translate[0], -pY + this.manip.translate[1]);
         ctx2.drawImage(cvs1, 0, 0, w, h, x, y, w, h );
         ctx2.restore();
-
         console.log('paste:', 0, 0, w, h, x, y, w, h );
     };
 
