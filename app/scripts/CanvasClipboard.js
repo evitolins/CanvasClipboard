@@ -101,56 +101,6 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
     };
 
 
-    // Utilities
-    CanvasClipboard.prototype.isCanvas = function (source) {
-        return (typeof source === "object" && source.tagName === "CANVAS");
-    };
-
-    CanvasClipboard.prototype.addSrc = function (dest, src, callback) {
-        var ctx = dest.getContext('2d'),
-            image = new Image();
-        image.onload = function() {
-            ctx.drawImage(image, 0, 0);
-            if (typeof callback === 'function') {
-                callback.apply();
-            }
-        };
-        image.src = src;
-    };
-
-    CanvasClipboard.prototype.copyFromTo = function (source, dest) {
-        var cvs1 = source,
-            ctx1 = cvs1.getContext("2d"),
-            cvs2 = dest,
-            ctx2 = cvs2.getContext("2d");
-
-        ctx2.clearRect(0, 0, cvs2.width, cvs2.height);
-        ctx2.drawImage(cvs1, 0, 0);
-    };
-
-    // Generates a new canvas element, cloning the attributes and contents of
-    // the given source
-    CanvasClipboard.prototype.clone = function (source) {
-        var cvs1 = source,
-            ctx1 = source.getContext("2d"),
-            cvs2 = document.createElement('canvas'),
-            ctx2 = cvs2.getContext("2d");
-        cvs2.width = cvs1.width;
-        cvs2.height = cvs1.height;
-        this.copyFromTo(cvs1, cvs2);
-        return cvs2;
-    };
-
-    CanvasClipboard.prototype.diff = function (canvas1, canvas2) {
-
-    };
-
-    CanvasClipboard.prototype.getColorSample = function (canvas, x, y) {
-        var ctx = canvas.getContext('2d'),
-            s = ctx.getImageData( x, y, 1, 1 );
-        return [ s.data[0], s.data[1], s.data[2] ];
-    };
-
 // http://stackoverflow.com/questions/9852159/calculate-bounding-box-of-arbitrary-pixel-based-drawing
 // function boundingBox()
 //   w = getWidth()            # Assuming graphics address goes from [0,w)
