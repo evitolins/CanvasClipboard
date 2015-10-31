@@ -84,7 +84,7 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         ctx2.translate(pX, pY);
         ctx2.scale(this.manip.scale, this.manip.scale);
         ctx2.rotate(degToRad(this.manip.rotate));
-        ctx2.translate(-pX, -pY);
+        ctx2.translate(-pX + this.manip.translate[0], -pY + this.manip.translate[1]);
 
         ctx2.drawImage(cvs1, 0, 0, w, h, x, y, w, h );
 
