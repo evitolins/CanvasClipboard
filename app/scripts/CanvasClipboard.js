@@ -12,6 +12,8 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         this.clipboard.x = 0;
         this.clipboard.y = 0;
         this.clipboard.scale = 1;
+        this.clipboard.translateX = 0;
+        this.clipboard.translateY = 0;
         this.clipboard.rotate = 0;
         this.clipboard.width = 0;
         this.clipboard.height = 0;
@@ -84,14 +86,16 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
 
     // Manipulation
     CanvasClipboard.prototype.scale = function (scale) {
-        this.clipboard.scale = scale || 1;
+        this.clipboard.scale = (typeof scale === 'number') ? scale : 1;
     };
 
-    CanvasClipboard.prototype.translate = function () {
-
+    CanvasClipboard.prototype.translate = function (x, y) {
+        this.clipboard.translateX = (typeof x === 'number') ? x : 0;
+        this.clipboard.translateY = (typeof y === 'number') ? y : 0;
     };
 
     CanvasClipboard.prototype.rotate = function (deg) {
+        deg = (typeof deg === 'number') ? deg : 0;
         var rad = Math.PI / 180 * deg;
         this.clipboard.rotate = rad;
     };
