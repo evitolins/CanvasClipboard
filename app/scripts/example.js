@@ -5,11 +5,13 @@ var b = document.getElementById('test1');
 var c = document.getElementById('test2');
 var d = document.getElementById('test3');
 var e = document.getElementById('test4');
+var f = document.getElementById('test5');
 var aCtx = a.getContext('2d');
 var bCtx = b.getContext('2d');
 var cCtx = c.getContext('2d');
 var dCtx = d.getContext('2d');
 var eCtx = e.getContext('2d');
+var fCtx = e.getContext('2d');
 
 testImg.onload = (function(){
     return function() {
@@ -31,6 +33,11 @@ testImg.onload = (function(){
         clipboard.rotate(-15);
         clipboard.scale(2);
         clipboard.paste(e);
+
+        clipboard.rotate(-15);
+        clipboard.scale(2);
+        clipboard.translate(20, 50);
+        clipboard.paste(f);
     }
 }());
 testImg.src = "images/testImage.jpg";
