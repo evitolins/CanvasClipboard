@@ -4,19 +4,27 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
 /*global */
 
 (function () { 'use strict';
+
+    var degToRad = function (deg) {
+        return Math.PI / 180 * deg;
+    };
+
+
+
     var CanvasClipboard = function () {
         this.clipboard = document.createElement('canvas');
         this.clipboard_ctx = this.clipboard.getContext('2d');
-        // Record Origin (allow "paste in place" while maintaing a minimally
-        // sized canvas)
-        this.clipboard.x = 0;
-        this.clipboard.y = 0;
-        this.clipboard.scale = 1;
-        this.clipboard.translateX = 0;
-        this.clipboard.translateY = 0;
-        this.clipboard.rotate = 0;
         this.clipboard.width = 0;
         this.clipboard.height = 0;
+        // Record Origin (allow "paste in place" while maintaing a minimally
+        // sized canvas)
+        this.origXpos = 0;
+        this.origYpos = 0;
+        this.manip = {
+            scale : 1,
+            rotate : 0,
+            translate : [0, 0]
+        };
     };
 
     // Clipboard
@@ -32,8 +40,8 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         h = (h <= source.height - y) ? h : source.height - y;
 
         // Alter clipboard to match source size and origin
-        this.clipboard.x = x || 0;
-        this.clipboard.y = y || 0;
+        this.origXpos = x || 0;
+        this.origYpos = y || 0;
         this.clipboard.width = w;
         this.clipboard.height = h;
 
@@ -64,8 +72,8 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
             w = cvs1.width,
             h = cvs1.height;
 
-            x = (x !== undefined) ? x : this.clipboard.x;
-            y = (y !== undefined) ? y : this.clipboard.y;
+            x = (x !== undefined) ? x : this.origXpos;
+            y = (y !== undefined) ? y : this.origYpos;
 
 
         var pX = x+(w/2);
@@ -74,8 +82,8 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
         console.log('pastePivot: ', pX, pY, w, h);
 
         ctx2.translate(pX, pY);
-        ctx2.scale(this.clipboard.scale, this.clipboard.scale);
-        ctx2.rotate(this.clipboard.rotate);
+        ctx2.scale(this.manip.scale, this.manip.scale);
+        ctx2.rotate(degToRad(this.manip.rotate));
         ctx2.translate(-pX, -pY);
 
         ctx2.drawImage(cvs1, 0, 0, w, h, x, y, w, h );
@@ -86,18 +94,17 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
 
     // Manipulation
     CanvasClipboard.prototype.scale = function (scale) {
-        this.clipboard.scale = (typeof scale === 'number') ? scale : 1;
+        this.manip.scale = (typeof scale === 'number') ? scale : 1;
     };
 
     CanvasClipboard.prototype.translate = function (x, y) {
-        this.clipboard.translateX = (typeof x === 'number') ? x : 0;
-        this.clipboard.translateY = (typeof y === 'number') ? y : 0;
+        this.manip.translate[0] = (typeof x === 'number') ? x : 0;
+        this.manip.translate[1] = (typeof y === 'number') ? y : 0;
     };
 
     CanvasClipboard.prototype.rotate = function (deg) {
         deg = (typeof deg === 'number') ? deg : 0;
-        var rad = Math.PI / 180 * deg;
-        this.clipboard.rotate = rad;
+        this.manip.rotate = deg;
     };
 
 
