@@ -38,7 +38,7 @@ var init = function () {
 
     ctxs.e.source.drawImage(testImg, 0, 0);
     clipboard.cut(canvases.e.source, 10, 30, 100, 100);
-    clipboard.rotate(35);
+    clipboard.rotate(-15);
     clipboard.scale(2);
     clipboard.translate(0, 50);
     clipboard.paste(canvases.e.dest);
