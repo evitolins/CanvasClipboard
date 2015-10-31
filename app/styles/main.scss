@@ -2,30 +2,25 @@
 // endbower
 
 body {
-  background: #fafafa;
+  background: #448DB5;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
+  color: #BDD4E1;
+  padding: 0 50px;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
+canvas {
+    outline: 1px solid #EEE;
+    background: #EEE;
 }
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
 }
+/* @http://www.sunpig.com/martin/archives/2010/02/10/marching-ants-in-css.html */
+.marchingAnts {
+    background: url('data:image/gif;base64,R0lGODlhCAAIAIABAAATfwAAACH5BAEAAAEALAAAAAAIAAgAAAINhBEZh8q6DoTPSWvoKQA7') repeat-x 0 -6px;
+    padding: 2px 0 0 0;
+
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
