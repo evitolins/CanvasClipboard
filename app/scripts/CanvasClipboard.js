@@ -106,8 +106,7 @@ browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: tr
     };
 
     CanvasClipboard.prototype.rotate = function (deg) {
-        deg = (typeof deg === 'number') ? deg : 0;
-        this.manip.rotate = deg;
+        this.manip.rotate = (typeof deg === 'number') ? deg : 0;
     };
 
 
