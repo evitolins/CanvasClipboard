@@ -14,6 +14,11 @@ bower install -S CanvasClipboard
 ## Getting Started
 ```javascript
 var clipboard = new CanvasClipboard();    
+clipboard.copy(source, x, y, w, h);
+clipboard.scale(2);
+clipboard.rotate(30);
+clipboard.translate(10, -20);
+clipboard.paste(dest);
 ```
 
 
