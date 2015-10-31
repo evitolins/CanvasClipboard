@@ -43,7 +43,7 @@ clipboard.paste(destCanvas);</code></pre>
         </tr>
     </table>
 
-    <h2>Cut->Paste w/ Offset</h2>
+    <h2>Cut -> Paste w/ Offset</h2>
     <table>
         <tr>
             <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceB"></canvas></td>
@@ -58,7 +58,7 @@ clipboard.paste(destCanvas);</code></pre>
         </tr>
     </table>
 
-    <h2>Paste w/ 27deg Rotation</h2>
+    <h2>Cut -> Paste w/ Rotate 27deg</h2>
     <table>
         <tr>
             <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceC"></canvas></td>
@@ -73,7 +73,7 @@ clipboard.paste(destCanvas);</code></pre>
         </tr>
     </table>
 
-    <h2>Paste w/ 200% Scale</h2>
+    <h2>Cut -> Paste w/ Scale 200%, Rotate -15deg</h2>
     <table>
         <tr>
             <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceD"></canvas></td>
@@ -89,7 +89,7 @@ clipboard.paste(destCanvas);</code></pre>
         </tr>
     </table>
 
-    <h2>Paste w/ 200% Scale, Translated (20, 50)</h2>
+    <h2>Cut -> Paste w/ Scale 200%, Rotate 35deg, Translate (20, 50)</h2>
     <table>
         <tr>
             <td><h3>source</h3><canvas class="checkered" width="300" height="300" id="sourceE"></canvas></td>
@@ -98,7 +98,7 @@ clipboard.paste(destCanvas);</code></pre>
                 <pre><code>var clipboard = new CanvasClipboard();
 sourceCtx.drawImage(img, 0, 0);
 clipboard.cut(sourceCanvas, 10, 30, 100, 100);
-clipboard.rotate(-15);
+clipboard.rotate(35);
 clipboard.scale(2);
 clipboard.translate(20, 50);
 clipboard.paste(destCanvas);</code></pre>
